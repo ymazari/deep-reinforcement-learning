@@ -36,7 +36,16 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 ### Instructions
 
-Follow the instructions in `Navigation.ipynb` to get started with training your own agent!  
+Follow the instructions in `Navigation.ipynb` to get started with training your own agent!
+1. Import the necessary dependencies, and initiate the Unity environment `env = UnityEnvironment(file_name="...")`
+2. Instantiate the agent, `agent = DoubleDqnAgent(state_size=state_size, action_size=action_size, seed=0, device=device, lr=lr, gamma=gamma)`
+3. Train it: `scores, best_avg_reward = interact(agent, env, brain_name, min_score=100.0)` 
+4. Visualize the agent play one episode
+
+### Files
+1. model.py: This is where the neural network is implemented. It's a fully conntected network with 3 hidden layers.
+2. p1_agent.py: Implementation of a Double Deep Q-learning Agent with Experience Replay.
+3. utils.py: SOme helper functions. In particular, the interact() method which runs the interaction loops between agent and environment.
 
 ### (Optional) Challenge: Learning from Pixels
 
