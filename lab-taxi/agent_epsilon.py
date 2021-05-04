@@ -2,9 +2,9 @@ import numpy as np
 from collections import defaultdict
 
 
-class Agent:
+class AgentWithEpsilon:
 
-    def __init__(self, env, num_episodes, alpha=0.1, gamma=1.0):
+    def __init__(self, env, num_episodes, epsilon=0.1, alpha=0.1, gamma=1.0):
         """ Initialize agent.
 
         Params
@@ -15,7 +15,7 @@ class Agent:
         self.num_episodes = num_episodes
         self.alpha = alpha
         self.gamma = gamma
-        self.epsilon = 1.0  # Start with 1, uniformly equally likely
+        self.epsilon = epsilon
         self.nA = env.action_space.n
         self.Q = defaultdict(lambda: np.zeros(self.nA))
 
@@ -60,5 +60,4 @@ class Agent:
         return policy_s
 
     def update_epsilon(self, i_episode):
-        # Decay epsilon linearly, up to a minimum of 0.1
-        self.epsilon = max((self.num_episodes - i_episode) / self.num_episodes, 0.1)
+        pass
