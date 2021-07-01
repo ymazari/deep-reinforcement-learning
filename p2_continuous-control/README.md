@@ -64,25 +64,14 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ### Instructions
 
-Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent!  
+Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent!
+1. Import the necessary dependencies, and initiate the Unity environment `env = UnityEnvironment(file_name="...")`
+2. Instantiate the agent, `agent = Agent(state_size=state_size, action_size=action_size, env=env, random_seed=1)`
+3. Train it: `scores, average_scores = agent.train()`
+4. Once the model is trained, use `Trained Agent Demo.ipynb` to visualize the trained agent play one episode
 
-### (Optional) Challenge: Crawler Environment
-
-After you have successfully completed the project, you might like to solve the more difficult **Crawler** environment.
-
-![Crawler][image2]
-
-In this continuous control environment, the goal is to teach a creature with four legs to walk forward without falling.  
-
-You can read more about this environment in the ML-Agents GitHub [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#crawler).  To solve this harder task, you'll need to download a new Unity environment.  (**Note**: Udacity students should not submit a project with this new environment.)
-
-You need only select the environment that matches your operating system:
-- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler_Linux.zip)
-- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler.app.zip)
-- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler_Windows_x86.zip)
-- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler_Windows_x86_64.zip)
-
-Then, place the file in the `p2_continuous-control/` folder in the DRLND GitHub repository, and unzip (or decompress) the file.  Next, open `Crawler.ipynb` and follow the instructions to learn how to use the Python API to control the agent.
-
-(_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
-
+### Files
+1. model.py: This is where the Actor and Critic model are implemented. Both are fully-connected networks with 3 hidden layers.
+2. ddpg_agent.py: Implementation of a Deep Deterministic Policy Gradients (DDPG) agent with Experience Replay. In particular, invoke the `train()` method to train it.
+3. Report.ipynb: A jupyter notebook with an instance of the ddpg_agent and the invocation of the `train()` method as well as the results.
+4. Trained Agent Demo.ipynb: A jupyter notebook which loads the trained model and plays one episode.
